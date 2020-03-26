@@ -22,8 +22,8 @@ public class PigGameState extends GameState {
     //copy constructor
     public PigGameState(PigGameState orig){
         playerID = orig.getPlayerID();
-        score0 = orig.getScore0();
-        score1 = orig.getScore1();
+        score0 = orig.getScore(0);
+        score1 = orig.getScore(1);
         runningTotal = orig.getRunningTotal();
         diceValue = orig.getDiceValue();
     }
@@ -36,20 +36,22 @@ public class PigGameState extends GameState {
         playerID = id;
     }
 
-    public int getScore0(){
-        return score0;
+    public int getScore(int id){
+        if(id == 0) {
+            return score0;
+        } else if(id == 1){
+            return score1;
+        } else {
+            return -1;
+        }
     }
 
-    public void setScore0(int score){
-        score0 = score;
-    }
-
-    public int getScore1(){
-        return score1;
-    }
-
-    public void setScore1(int score){
-        score1 = score;
+    public void setScore(int id, int score){
+        if(id == 0) {
+            score0 = score;
+        } else if(id == 1){
+            score1 = score;
+        }
     }
 
     public int getRunningTotal(){

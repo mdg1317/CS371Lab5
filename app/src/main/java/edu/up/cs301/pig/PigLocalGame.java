@@ -51,10 +51,10 @@ public class PigLocalGame extends LocalGame {
 
         if(action instanceof PigHoldAction){
             if(currentPlayer == 0) {
-                state.setScore0(state.getScore0() + currTotal);
+                state.setScore(0,state.getScore(0) + currTotal);
                 state.setPlayerID(1);
             } else if(currentPlayer == 1){
-                state.setScore1(state.getScore1() + currTotal);
+                state.setScore(1,state.getScore(1) + currTotal);
                 state.setPlayerID(0);
             }
             state.setRunningTotal(0);
@@ -98,8 +98,8 @@ public class PigLocalGame extends LocalGame {
     @Override
     protected String checkIfGameOver() {
         //TODO  You will implement this method
-        int score0 = state.getScore0();
-        int score1 = state.getScore1();
+        int score0 = state.getScore(0);
+        int score1 = state.getScore(1);
         String winner;
 
         if(score0 >= 50){
