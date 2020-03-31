@@ -52,7 +52,9 @@ public class PigLocalGame extends LocalGame {
         if(action instanceof PigHoldAction){
             if(currentPlayer == 0) {
                 state.setScore(0,state.getScore(0) + currTotal);
-                state.setPlayerID(1);
+                if(this.getNumPlayers() > 1) {
+                    state.setPlayerID(1);
+                }
             } else if(currentPlayer == 1){
                 state.setScore(1,state.getScore(1) + currTotal);
                 state.setPlayerID(0);
@@ -66,7 +68,9 @@ public class PigLocalGame extends LocalGame {
                 state.setRunningTotal(currTotal + rand);
             } else {
                 if(currentPlayer == 0){
-                    state.setPlayerID(1);
+                    if(this.getNumPlayers() > 1) {
+                        state.setPlayerID(1);
+                    }
                 } else {
                     state.setPlayerID(0);
                 }
